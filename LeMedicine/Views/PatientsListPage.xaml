@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LeMedicine.Views.PatientsListPage"
+             xmlns:vm="clr-namespace:LeMedicine.ViewModel"
+             xmlns:mo="clr-namespace:LeMedicine.Models"
+             Title="PatientsListPage">
+    <VerticalStackLayout x:DataType="vm:PatientViewModel">
+        <Button Command="{Binding SavePatientCommand}" Text="Imprime Pacientes"></Button>
+        <CollectionView ItemsSource="{Binding Patients}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="mo:PatientModel">
+                    <VerticalStackLayout>
+                        <Label Text="{Binding Id}"/>
+                        <Label Text="{Binding FirstName}"/>
+                        <Label Text="{Binding LastName}"/>
+                        <Label Text="{Binding Birthday}"/>
+                        <Label Text="{Binding EmergencyContact}"/>
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>
